@@ -71,6 +71,20 @@ class App extends Component {
     // passing in heaps of props to the component
     return (
       <div className="app">
+        <div className="map">
+          <GoogleMapReact
+            center={center}
+            zoom={12}>
+            {this.state.offers.map((offer, index)=>{
+              return <Marker 
+              key={index} 
+              lat={offer.latitude}
+              lng={offer.longitude}
+              text={offer.offer_price}
+              selected={offer === this.state.selectedOffer} />
+            })}
+          </GoogleMapReact>
+        </div>
         <div className="main">
           <div className="search">
             <input 
@@ -87,20 +101,6 @@ class App extends Component {
                 selectOffer={this.selectOffer} />
             })}
           </div>
-        </div>
-        <div className="map">
-          <GoogleMapReact
-            center={center}
-            zoom={12}>
-            {this.state.offers.map((offer, index)=>{
-              return <Marker 
-              key={index} 
-              lat={offer.latitude}
-              lng={offer.longitude}
-              text={offer.offer_price}
-              selected={offer === this.state.selectedOffer} />
-            })}
-          </GoogleMapReact>
         </div>
       </div>
     );

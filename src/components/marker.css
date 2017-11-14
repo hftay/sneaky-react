@@ -8,7 +8,13 @@
 	padding: 4px 0;
 }
 
+.marker:hover {
+	width: 60px;
+	font-size: 30px;
+	transition: 0.5s;
+}
+
 .marker.selected {
-	background-color: gold;
+	background-color: yellow;
 	border-color: black;
 }

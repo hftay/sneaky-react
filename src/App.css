@@ -2,10 +2,11 @@
   display: flex;
 }
 .main {
-  flex-basis: 60%;
+  flex-basis: 40%;
   display: flex;
   flex-direction: column;
-  /*background-color: black;*/
+  background-color: #f1e1c8;
+  color: #483e23;
 }
 .search {
   padding: 10px;

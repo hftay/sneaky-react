@@ -2,7 +2,7 @@
   "name": "sneaky-app",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001",
+  // "proxy": "http://localhost:3001",
   "dependencies": {
     "google-map-react": "^0.25.0",
     "react": "^16.1.1",
