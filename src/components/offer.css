@@ -1,20 +1,20 @@
-.flat{
+.offer{
 	flex-basis: calc(50% - 20px);
 	margin: 10px;
 	cursor: pointer;
 }
 
-.flat:hover {
+.offer:hover {
 	opacity: 0.5;
 }
 
-.flat-picture{
+.offer-picture{
 	height: 200px;
 	background-size: cover;
 	background-position: center;
 }
 
-.flat-title{
+.offer-title{
 	margin-top: 10px;
 	font-weight: bold;
 }

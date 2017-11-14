@@ -25,7 +25,7 @@
   position: sticky;
   /*background-color: mistyrose;*/
 }
-.flats {
+.offers {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;

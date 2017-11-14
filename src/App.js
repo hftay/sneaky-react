@@ -2,52 +2,56 @@ import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 // import logo from './logo.svg';
 import './App.css';
-import Flat from './components/flat';
+import Offer from './components/offer';
 import Marker from './components/marker';
 
 class App extends Component {
   constructor(props){
     super(props);
-    this.selectFlat = this.selectFlat.bind(this)
+    this.selectOffer = this.selectOffer.bind(this)
     this.state = {
-      flats: [],
-      allFlats: [], // hack to make search functionality work: to avoid losing flats when doing regex, allows you to have two copies of flats in your app
-      selectedFlat: null,
+      offers: [],
+      allOffers: [], // hack to make search functionality work: to avoid losing offers when doing regex, allows you to have two copies of offers in your app
+      selectedOffer: null,
       search: ''
     };
   }
 
   componentDidMount(){ // this is a react built-in function, checks if...
     console.log("I'm mounted here!");
-    const url = "https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/flats.json" 
+    // const url = "https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/flats.json"
+    // const url = "http://localhost:3001/api/offers" 
+    // const url = "/api/offers" // added in package.json... "proxy": "http://localhost:3001"
+    const url = "https://raw.githubusercontent.com/hftay/sneaky-rails/master/offers.json"
+
     fetch(url) // AJAX
-      .then(response => response.json()) // function to return "response"(raw string) to json format
+      .then(response => response.json()) // converts raw string to json format
       .then((data)=>{ // the callback
         console.log(data);
         this.setState({ 
-          flats: data,
-          allFlats: data
+          offers: data,
+          allOffers: data
         }) // update state
       })
   }
 
-  // selectFlat = (flat) => {
-  //   console.log(flat);
+  // selectOffer = (offer) => {
+  //   console.log(offer);
   //   this.setState({
-  //     selectedFlat: flat
+  //     selectedOffer: offer
   //   })
   // }
-  // is the same as writing the below + this.selectFlat = this.selectFlat.bind(this) in constuctor()
-  selectFlat(flat){
-    console.log(flat);
-    this.setState({ selectedFlat: flat })
+  // is the same as writing the below + this.selectOffer = this.selectOffer.bind(this) in constuctor()
+  selectOffer(offer){
+    console.log(offer);
+    this.setState({ selectedOffer: offer })
   }
 
   handleSearch = (event) => {
     console.log(event.target.value);
     this.setState({ 
       search: event.target.value,
-      flats: this.state.allFlats.filter((flat)=>new RegExp(event.target.value,"i").exec(flat.name))
+      offers: this.state.allOffers.filter((offer)=>new RegExp(event.target.value,"i").exec(offer.name))
     });
   }
 
@@ -57,10 +61,10 @@ class App extends Component {
       lng: 2.3522
     }
 
-    if (this.state.selectedFlat){
+    if (this.state.selectedOffer){
       center = {
-        lat: this.state.selectedFlat.lat,
-        lng: this.state.selectedFlat.lng
+        lat: this.state.selectedOffer.latitude,
+        lng: this.state.selectedOffer.longitude
       }
     }
 
@@ -75,12 +79,12 @@ class App extends Component {
               value={this.state.search}
               onChange={this.handleSearch}/>
           </div>
-          <div className="flats">
-            {this.state.flats.map((flat, index)=>{
-              return <Flat 
+          <div className="offers">
+            {this.state.offers.map((offer, index)=>{
+              return <Offer 
                 key={index} 
-                flat={flat}
-                selectFlat={this.selectFlat} />
+                offer={offer}
+                selectOffer={this.selectOffer} />
             })}
           </div>
         </div>
@@ -88,13 +92,13 @@ class App extends Component {
           <GoogleMapReact
             center={center}
             zoom={12}>
-            {this.state.flats.map((flat, index)=>{
+            {this.state.offers.map((offer, index)=>{
               return <Marker 
               key={index} 
-              lat={flat.lat}
-              lng={flat.lng}
-              text={flat.price}
-              selected={flat === this.state.selectedFlat} />
+              lat={offer.latitude}
+              lng={offer.longitude}
+              text={offer.offer_price}
+              selected={offer === this.state.selectedOffer} />
             })}
           </GoogleMapReact>
         </div>
