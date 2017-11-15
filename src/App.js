@@ -68,7 +68,6 @@ class App extends Component {
       }
     }
 
-    // passing in heaps of props to the component
     return (
       <div className="app">
 

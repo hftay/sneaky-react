@@ -3,7 +3,7 @@
   display: flex;
 }
 .main {
-  flex-basis: 60%;
+  flex-basis: 50%;
   display: flex;
   flex-direction: column;
   background-color: #f1e1c8;
@@ -34,8 +34,8 @@
 }
 .nav{
 
-  /*width: 100vw;*/
-  /*flex-grow: 1;*/
+  /*width: 8vw;*/
+  /*to make sidebar stick*/
   height: 100vh;
   top: 0;
   position: sticky;
