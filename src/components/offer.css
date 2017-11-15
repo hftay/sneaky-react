@@ -5,16 +5,17 @@
 }
 
 .offer:hover {
-	opacity: 0.5;
+	opacity: 0.9;
 }
 
 .offer-picture{
 	height: 200px;
 	background-size: cover;
 	background-position: center;
+	border-radius: 10px;
 }
 
 .offer-title{
 	margin-top: 10px;
-	font-weight: bold;
+	/*font-weight: bold;*/
 }

@@ -1,3 +1,0 @@
-const STRIPE_PUBLISHABLE = process.env.STRIPE_TEST_PUBLISHABLE_KEY ;
-
-export default STRIPE_PUBLISHABLE;
