@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import {Route, NavLink, HashRouter } from 'react-router-dom';
+import Login from './components/login';
+import Payment from './components/payment';
 import GoogleMapReact from 'google-map-react';
 // import logo from './logo.svg';
 import './App.css';
@@ -68,39 +71,53 @@ class App extends Component {
 
     // passing in heaps of props to the component
     return (
-      <div className="app">
-        <div className="map">
-          <GoogleMapReact
-            center={center}
-            zoom={12}>
-            {this.state.offers.map((offer, index)=>{
-              return <Marker 
-              key={index} 
-              lat={offer.latitude}
-              lng={offer.longitude}
-              text={offer.offer_price}
-              selected={offer === this.state.selectedOffer} />
-            })}
-          </GoogleMapReact>
-        </div>
-        <div className="main">
-          <div className="search">
-            <input 
-              type="text"
-              placeholder="Search..."
-              value={this.state.search}
-              onChange={this.handleSearch}/>
+      <HashRouter> 
+       
+        <div className="app">
+
+          <div className="header">
+            <NavLink to="/login">Login</NavLink>
+            <NavLink to="/cart">Cart</NavLink>
           </div>
-          <div className="offers">
-            {this.state.offers.map((offer, index)=>{
-              return <Offer 
+          <div className="content">
+            <Route path="/login" component={Login}/>
+            <Route path="/cart" component={Payment}/>
+          </div>           
+
+          <div className="map">
+            <GoogleMapReact
+              center={center}
+              zoom={12}>
+              {this.state.offers.map((offer, index)=>{
+                return <Marker 
                 key={index} 
-                offer={offer}
-                selectOffer={this.selectOffer} />
-            })}
+                lat={offer.latitude}
+                lng={offer.longitude}
+                text={offer.offer_price}
+                selected={offer === this.state.selectedOffer} />
+              })}
+            </GoogleMapReact>
+          </div>
+          <div className="main">
+            <div className="search">
+              <input 
+                type="text"
+                placeholder="Search..."
+                value={this.state.search}
+                onChange={this.handleSearch}/>
+            </div>
+            <div className="offers">
+              {this.state.offers.map((offer, index)=>{
+                return <Offer 
+                  key={index} 
+                  offer={offer}
+                  selectOffer={this.selectOffer} />
+              })}
+            </div>
           </div>
         </div>
-      </div>
+
+      </HashRouter> 
     );
   }
 }
