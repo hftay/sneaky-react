@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Route, NavLink, HashRouter } from 'react-router-dom';
 import Login from './components/login';
-import Payment from './components/payment';
+import Checkout from './components/checkout';
 import GoogleMapReact from 'google-map-react';
 // import logo from './logo.svg';
 import './App.css';
@@ -81,8 +81,9 @@ class App extends Component {
           </div>
           <div className="content">
             <Route path="/login" component={Login}/>
-            <Route path="/cart" component={Payment}/>
-          </div>           
+            <Route path="/cart" component={Checkout}/>
+          </div>
+
 
           <div className="map">
             <GoogleMapReact
