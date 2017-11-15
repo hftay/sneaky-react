@@ -1,11 +1,10 @@
 import React from "react";
-import "./offer.css"; //webpack will import
+import "./offer.css";
 
 class Offer extends React.Component {
 	
 	handleClick = () => {
-		// call the parent method selectOffer
-		// the Offer Component does not know about the click event because the Offer component does not know about the external wall, pass a proxy
+		// call the parent method selectOffer which is passed in
 		this.props.selectOffer(this.props.offer);
 	}
 
@@ -17,7 +16,7 @@ class Offer extends React.Component {
 // }
 
 	render(){
-		const title = "$" + this.props.offer.offer_price 
+		const title = "$" + Number(this.props.offer.offer_price) 
 		+ "	"
 		+ this.props.offer.name 
 

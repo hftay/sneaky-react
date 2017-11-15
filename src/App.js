@@ -11,18 +11,16 @@ class App extends Component {
     this.selectOffer = this.selectOffer.bind(this)
     this.state = {
       offers: [],
-      allOffers: [], // hack to make search functionality work: to avoid losing offers when doing regex, allows you to have two copies of offers in your app
+      allOffers: [], // hack to make search functionality work
       selectedOffer: null,
       search: ''
     };
   }
 
-  componentDidMount(){ // this is a react built-in function, checks if...
+  componentDidMount(){ // react built-in function
     console.log("I'm mounted here!");
-    // const url = "https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/flats.json"
-    // const url = "http://localhost:3001/api/offers" 
-    // const url = "/api/offers" // added in package.json... "proxy": "http://localhost:3001"
-    const url = "https://raw.githubusercontent.com/hftay/sneaky-rails/master/offers.json"
+    const url = "/api/offers" // added localhost proxy in package.json
+    // const url = "https://raw.githubusercontent.com/hftay/sneaky-rails/master/offers.json"
 
     fetch(url) // AJAX
       .then(response => response.json()) // converts raw string to json format
@@ -35,17 +33,17 @@ class App extends Component {
       })
   }
 
-  // selectOffer = (offer) => {
-  //   console.log(offer);
-  //   this.setState({
-  //     selectedOffer: offer
-  //   })
-  // }
-  // is the same as writing the below + this.selectOffer = this.selectOffer.bind(this) in constuctor()
-  selectOffer(offer){
+  selectOffer = (offer) => {
     console.log(offer);
-    this.setState({ selectedOffer: offer })
+    this.setState({
+      selectedOffer: offer
+    })
   }
+  // is the same as writing the below + this.selectOffer = this.selectOffer.bind(this) in constuctor()
+  // selectOffer(offer){
+  //   console.log(offer);
+  //   this.setState({ selectedOffer: offer })
+  // }
 
   handleSearch = (event) => {
     console.log(event.target.value);
