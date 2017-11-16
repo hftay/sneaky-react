@@ -74,7 +74,10 @@ class App extends Component {
             zoom={12}>
             {this.state.offers.map((offer, index)=>{
               return <Marker 
-              key={index} 
+              key={index}
+              bootstrapURLKeys={{
+                    key: 'AIzaSyAijWFPCoiUPmD1AcQEeuJa5QZvy8s72Sc'
+                }} 
               lat={offer.latitude}
               lng={offer.longitude}
               text={offer.offer_price}

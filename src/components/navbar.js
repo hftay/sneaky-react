@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, NavLink, HashRouter } from 'react-router-dom';
 import Login from './login';
 import Checkout from './checkout';
-import App from './../App';
 import './navbar.css';
 import Signup from './signup';
 

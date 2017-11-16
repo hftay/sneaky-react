@@ -66,9 +66,10 @@ class Login extends React.Component {
 						<br /><br />
 					<button>Login</button>
 				</form>
-				<br /><br />
-
-        <NavLink to="/signup">Sign Up</NavLink>
+				<br />
+				<div>Need an account?</div>
+				<br />
+        <NavLink to="/signup"><button>Sign Up!</button></NavLink>
         <Route path="/signup" component={Signup}/>
 
 			</div></HashRouter>

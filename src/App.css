@@ -36,11 +36,23 @@
 }
 .nav{
   /*flex-grow: 1;*/
-  /*flex-basis: 50%;*/
+  /*flex-basis: 5%;*/
   
-  /*width: 8vw;*/
+  width: 1px;
+  opacity: 0;  
+  transition: 1s;
+  /*display: none;*/
+  /*visibility: hidden;*/
+
   /*to make sidebar stick*/
   height: 100vh;
   top: 0;
   position: sticky;
+}
+
+.nav:hover {
+  width: 180px;
+  opacity: 1;  
+  /*display: block;*/
+  /*visibility: visible;  */
 }
