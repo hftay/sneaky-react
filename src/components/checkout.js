@@ -27,6 +27,9 @@ class Checkout extends React.Component {
         <StripeCheckout
           token={this.onToken}
           stripeKey='pk_test_oN5PrweDu8VpLHbb5rUD5x16'
+          amount={500}
+          description='Cucumber Mint Vodka'
+          image="http://www.domesticate-me.com/wp-content/uploads/2015/03/cucumber-mint-vodka-sparklers-6.jpg"
         />
       </div>
     )

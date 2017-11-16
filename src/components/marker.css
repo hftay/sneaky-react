@@ -9,12 +9,11 @@
 }
 
 .marker:hover {
-	width: 50px;
 	font-size: 20px;
 }
 
 .marker.selected {
 	background-color: yellow;
 	border-color: black;
-	transition: 2s;
+	transition: 1.5s;
 }

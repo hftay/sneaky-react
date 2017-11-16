@@ -7,7 +7,8 @@ class Signup extends React.Component {
 		this.state = {
 			username: '',
 			email: '',			
-			password: ''
+			password: '',
+			message: ''
 		}
 	}
 
@@ -19,9 +20,6 @@ class Signup extends React.Component {
     params.append('email', this.state.email)    
     // params.append('password_digest', this.state.password)
     
-    // clear input fields
-		this.setState({ username: '', email: '', password: '' })
-
     const url = "https://sneaky-rails.herokuapp.com/users" 
     // const url = "http://localhost:3001/users" 
 
@@ -29,10 +27,18 @@ class Signup extends React.Component {
 			method: 'POST',
 			body: params
 		})
-		// .then(alert('signup was a great success!'))
 		// .catch(error => console.log(error.message));
 		.then(res => res.json())
-    .then(data => console.log('signup attempted: ' + data.msg))
+    // .then(data => console.log('signup attempted: ' + data.msg))
+    .then(data => {
+    	console.log('signup attempted: ' + data.msg);
+    	this.setState({
+    		message: `${data.msg}, ${this.state.username}!`,
+    		username: '', // clear input fields 
+    		email: '', 
+    		password: ''
+    	})
+    })
 	}
 
 	usernameChange = (event) => {
@@ -75,6 +81,10 @@ class Signup extends React.Component {
 						placeholder="password"/>
 					<br /><br />
 					<button>Signup</button>
+					<br /><br />
+					<div>
+						{this.state.message}
+					</div>
 				</form>
 			</div>
 		)

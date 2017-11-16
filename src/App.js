@@ -20,8 +20,8 @@ class App extends Component {
 
   componentDidMount(){ // react built-in function
     // console.log("I'm mounted here!");
-    const url = "https://sneaky-rails.herokuapp.com/api/offers"
-    // const url = "http://localhost:3001/api/offers" 
+    // const url = "https://sneaky-rails.herokuapp.com/api/offers"
+    const url = "http://localhost:3001/api/offers" 
     // added localhost proxy in package.json
 
     fetch(url) // AJAX
@@ -63,6 +63,7 @@ class App extends Component {
       }
     }
 
+
     return (
       <div className="app">
 
@@ -73,6 +74,7 @@ class App extends Component {
             center={center}
             zoom={12}>
             {this.state.offers.map((offer, index)=>{
+              // const discount = Number( (offer.offer_price/offer.normal_price) *100).toFixed(2)
               return <Marker 
               key={index}
               bootstrapURLKeys={{
@@ -80,7 +82,7 @@ class App extends Component {
                 }} 
               lat={offer.latitude}
               lng={offer.longitude}
-              text={offer.offer_price}
+              text={`$${Number(offer.offer_price)}`}
               selected={offer === this.state.selectedOffer} />
             })}
           </GoogleMapReact>
@@ -90,7 +92,7 @@ class App extends Component {
           <div className="search">
             <input 
               type="text"
-              placeholder="Search..."
+              placeholder="Search"
               value={this.state.search}
               onChange={this.handleSearch} />
           </div>
