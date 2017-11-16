@@ -88,7 +88,7 @@ class App extends Component {
               type="text"
               placeholder="Search..."
               value={this.state.search}
-              onChange={this.handleSearch}/>
+              onChange={this.handleSearch} />
           </div>
           <div className="offers">
             {this.state.offers.map((offer, index)=>{

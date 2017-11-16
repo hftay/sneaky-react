@@ -5,9 +5,10 @@ class Checkout extends React.Component {
 
   onToken = (token) => {
     var params = new FormData() // FormData to pass params to Rails
-    params.append('source', token.id) 
+    params.append('source', token.id)
     params.append('amount', 100) // hardcoding for now
     params.append('currency', 'aud') // hardcoding for now
+    // params.append('description', "a very good deal...")     
 
     const url = "http://localhost:3001/charges" 
     

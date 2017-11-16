@@ -22,7 +22,6 @@ class Navbar extends React.Component {
           <div className="content">
             <Route path="/login" component={Login}/>
           	<Route path="/cart" component={Checkout}/>
-
             <Route path="/signup" component={Signup}/>
 
           </div>
