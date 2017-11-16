@@ -1,4 +1,4 @@
-###Sneaky
+### Sneaky
 
 Sneaky is an app that provides exclusive last-minute entertainment offers to its users.
 
@@ -14,18 +14,16 @@ Sneaky allows business to reach a large customer base at the push of the button.
 The approach taken for this app is to provide a fun user experience with a seamless integration from signup to checkout. (Sneaky is still a work in progress)
 
 Tech used:
-	· React front end
-		○ React-router-dom
-		○ google-maps-react library
-	· Rails backend
-	· External API
-		○ Stripe Api for payments
-		○ Google user sign in (TBC)
-	· Styling
-		○ Material ui (TBC)
-	· Would like to add, time permitting
-		○ Amazon S3 (TBC)
-		○ Geocoder (TBC)
-		○ Redux (TBC)
-		○ More react-libraries (more time and practice to familiarise e.g. React Router, Redux)
-		○ Make it fun/sneaky idea of a "secret password" + countdown timer to end of deal
+- React front end
+- React-router-dom
+- Google-maps-react library
+- Rails backend
+- Stripe Api for payments
+- Google user sign in (TBC)
+- Material ui (TBC)
+- Would like to add, time permitting
+- Amazon S3 to store images for offers (TBC)
+- Geocoder when creating offers (TBC)
+- Redux (TBC)
+- More time and practice to familiarise with react libraries e.g. React Router, Redux
+- Make it fun/sneaky idea of a "secret password" + countdown timer to deal expiry
