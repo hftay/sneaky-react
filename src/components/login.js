@@ -22,7 +22,9 @@ class Login extends React.Component {
     
     // clear input fields
 		this.setState({ email: '', password: '' })
-    const url = "http://localhost:3001/users" 
+		
+    // const url = "http://localhost:3001/users" 
+		const url = "https://sneaky-rails.herokuapp.com/users"
 
 		return fetch(url,{
 			method: 'POST',

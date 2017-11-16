@@ -10,7 +10,8 @@ class Checkout extends React.Component {
     params.append('currency', 'aud') // hardcoding for now
     // params.append('description', "a very good deal...")     
 
-    const url = "http://localhost:3001/charges" 
+    // const url = "http://localhost:3001/charges" 
+    const url = "https://sneaky-rails.herokuapp.com/charges"
     
     return fetch(url,{
       method: 'POST',

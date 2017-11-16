@@ -13,7 +13,8 @@ class Offer extends React.Component {
     params.append('user_id', 1) // hardcoded
     params.append('offer_id', this.props.offer.id)
     
-    const url = "http://localhost:3001/api/carts" 
+    const url = "https://sneaky-rails.herokuapp.com/api/carts"
+    // const url = "http://localhost:3001/api/carts" 
 
 		return fetch(url,{
 			method: 'POST',

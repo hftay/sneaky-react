@@ -21,7 +21,9 @@ class Signup extends React.Component {
     
     // clear input fields
 		this.setState({ username: '', email: '', password: '' })
-    const url = "http://localhost:3001/users" 
+
+    const url = "https://sneaky-rails.herokuapp.com/users" 
+    // const url = "http://localhost:3001/users" 
 
 		return fetch(url,{
 			method: 'POST',

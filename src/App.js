@@ -20,7 +20,8 @@ class App extends Component {
 
   componentDidMount(){ // react built-in function
     // console.log("I'm mounted here!");
-    const url = "http://localhost:3001/api/offers" 
+    const url = "https://sneaky-rails.herokuapp.com/api/offers"
+    // const url = "http://localhost:3001/api/offers" 
     // added localhost proxy in package.json
 
     fetch(url) // AJAX
