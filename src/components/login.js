@@ -22,7 +22,7 @@ class Login extends React.Component {
     
     // clear input fields
 		this.setState({ email: '', password: '' })
-		
+
     // const url = "http://localhost:3001/users" 
 		const url = "https://sneaky-rails.herokuapp.com/users"
 
@@ -56,12 +56,14 @@ class Login extends React.Component {
 						value={this.state.email} 
 						required="required" 						
 						placeholder="email"/>
+						<br /><br />
 					<input 
 						type="password"
 	          onChange={this.passwordChange}
 						value={this.state.password} 
 						required="required"							          						
 						placeholder="password"/>
+						<br /><br />
 					<button>Login</button>
 				</form>
 				<br /><br />
