@@ -22,7 +22,6 @@ class Checkout extends React.Component {
     return (
       <div>
         <h1>Payment</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit ratione iste, earum voluptatum veritatis sapiente? Dolor hic dolores earum similique fugit numquam expedita ipsum consequatur at, error nihil fuga illum.</p>
         <StripeCheckout
           token={this.onToken}
           stripeKey='pk_test_oN5PrweDu8VpLHbb5rUD5x16'

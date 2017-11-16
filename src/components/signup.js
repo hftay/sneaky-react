@@ -1,10 +1,8 @@
 import React from 'react';
-import { Route, NavLink, HashRouter } from 'react-router-dom';
-import Signup from './signup';
 
-class Login extends React.Component {
-
-	  constructor(props) {
+class Signup extends React.Component {
+	
+  constructor(props) {
   	super(props)
 		this.state = {
 			username: '',
@@ -17,11 +15,12 @@ class Login extends React.Component {
 		event.preventDefault()
 		
 		var params = new FormData() // FormData to pass params to Rails
+    params.append('username', this.state.username)
     params.append('email', this.state.email)    
     // params.append('password_digest', this.state.password)
     
     // clear input fields
-		this.setState({ email: '', password: '' })
+		this.setState({ username: '', email: '', password: '' })
     const url = "http://localhost:3001/users" 
 
 		return fetch(url,{
@@ -34,6 +33,10 @@ class Login extends React.Component {
     .then(data => console.log('signup attempted: ' + data.msg))
 	}
 
+	usernameChange = (event) => {
+		this.setState({ username: event.target.value })
+		console.log( this.state.username )
+	}
 	emailChange = (event) => {
 		this.setState({ email: event.target.value })
 		console.log( this.state.email )
@@ -45,31 +48,35 @@ class Login extends React.Component {
 
 	render(){
 		return (
-			<HashRouter><div>
-				<h1>Login</h1>
+			<div>
+				<h1>Signup</h1>
 				<form onSubmit={this.handleSubmit}>
 					<input 
 						type="text"
+	          onChange={this.usernameChange}
+						value={this.state.username} 
+						required="required" 						
+						placeholder="username"/>
+					<br /><br />
+					<input 
+						type="email"
 	          onChange={this.emailChange}
 						value={this.state.email} 
-						required="required" 						
+						required="required" 												
 						placeholder="email"/>
+					<br /><br />
 					<input 
 						type="password"
 	          onChange={this.passwordChange}
 						value={this.state.password} 
 						required="required"							          						
 						placeholder="password"/>
-					<button>Login</button>
+					<br /><br />
+					<button>Signup</button>
 				</form>
-				<br /><br />
-
-        <NavLink to="/signup">Sign Up</NavLink>
-        <Route path="/signup" component={Signup}/>
-
-			</div></HashRouter>
+			</div>
 		)
 	}
 }
 
-export default Login;
+export default Signup;

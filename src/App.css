@@ -4,6 +4,7 @@
 }
 .main {
   flex-basis: 50%;
+  /*flex-grow: 1;*/
   display: flex;
   flex-direction: column;
   background-color: #f1e1c8;
@@ -22,6 +23,7 @@
 }
 .map{
   flex-grow: 1;
+  /*flex-basis: 50%;  */
   height: 100vh;
   top: 0;
   position: sticky;
@@ -33,7 +35,9 @@
   align-content: flex-start;
 }
 .nav{
-
+  /*flex-grow: 1;*/
+  /*flex-basis: 50%;*/
+  
   /*width: 8vw;*/
   /*to make sidebar stick*/
   height: 100vh;

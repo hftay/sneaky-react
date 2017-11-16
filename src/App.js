@@ -7,11 +7,9 @@ import Offer from './components/offer';
 import Marker from './components/marker';
 import Navbar from './components/navbar';
 
-
 class App extends Component {
   constructor(props){
     super(props);
-    // this.selectOffer = this.selectOffer.bind(this)
     this.state = {
       offers: [],
       allOffers: [], // hack to make search functionality work
@@ -22,7 +20,8 @@ class App extends Component {
 
   componentDidMount(){ // react built-in function
     // console.log("I'm mounted here!");
-    const url = "http://localhost:3001/api/offers" // added localhost proxy in package.json
+    const url = "http://localhost:3001/api/offers" 
+    // added localhost proxy in package.json
 
     fetch(url) // AJAX
       .then(response => response.json()) // converts raw string to json format
@@ -41,11 +40,6 @@ class App extends Component {
       selectedOffer: offer
     })
   }
-  // is the same as writing the below + this.selectOffer = this.selectOffer.bind(this) in constuctor()
-  // selectOffer(offer){
-  //   console.log(offer);
-  //   this.setState({ selectedOffer: offer })
-  // }
 
   handleSearch = (event) => {
     console.log(event.target.value);
@@ -99,8 +93,8 @@ class App extends Component {
           <div className="offers">
             {this.state.offers.map((offer, index)=>{
               return <Offer key={offer.id} 
-                  offer={offer}
-                  selectOffer={this.selectOffer} />
+                offer={offer}
+                selectOffer={this.selectOffer} />
             })}
           </div>
         </div>

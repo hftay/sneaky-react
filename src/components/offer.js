@@ -4,34 +4,45 @@ import "./offer.css";
 class Offer extends React.Component {
 	
 	handleClick = () => {
-		// call the parent method selectOffer which is passed in
+		// Offer receives the selectOffer function (defined in App.js) as a prop // it also receives the 'offer' as a prop
 		this.props.selectOffer(this.props.offer);
 	}
+	addToCart = () => {
 
-// var handleClick = function(){
-//   return something
-// }
-// function handleClick(){	
-//   return something
-// }
+		var params = new FormData() // FormData to pass params to Rails
+    params.append('user_id', 1) // hardcoded
+    params.append('offer_id', this.props.offer.id)
+    
+    const url = "http://localhost:3001/api/carts" 
+
+		return fetch(url,{
+			method: 'POST',
+			body: params
+		})
+	}
 
 	render(){
-		const title = "$" + Number(this.props.offer.offer_price) 
-		+ "	"
-		+ this.props.offer.name 
+		const title = this.props.offer.name 
+		const price = "$" + Number(this.props.offer.offer_price)
 
 		const style = {    // template literals in ES6: ` ${} `
 			backgroundImage: `url('${this.props.offer.image_url}')`
 		};
 
 		return(
-				<div className="offer" onClick={this.handleClick}>
+				<div className="offer" >
 					<div className="offer-picture"
+						onClick={this.handleClick}
 						style={style}>
 					</div>
 					<div className="offer-title">
-						{title}
+						{price}
+						<br />
+						{title} 
 					</div>
+					<button
+					onClick={this.addToCart}
+					>add to cart</button>
 				</div>	
 			);
 	}
